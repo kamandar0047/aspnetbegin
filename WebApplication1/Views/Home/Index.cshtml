@@ -1,0 +1,79 @@
+﻿@*@model List<Student>*@
+@model HomeViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_ViewStart.cshtml";
+    int count = 0;
+}
+
+
+@* <h1>Name:ViewData["Name"]</h1>*@
+@*  <h1>Surname:@ViewBag.Surname</h1>*@
+@* <h1>Age:@TempData["Age"]</h1>*@
+
+
+
+
+<h1>@Model.Fullname</h1>
+<h2>
+    Student List
+</h2>
+
+<ul>
+    @foreach (Student student in Model.Students)
+    {
+        if (student.Id != 1)
+        {
+            <li> @student.Id @student.Name @student.Surname </li>
+
+            count++;
+        }
+
+    }
+
+
+</ul>
+
+<h4>Count:@count</h4>
+
+
+@switch (count)
+{
+
+
+    case 1:
+        <p>1</p>
+
+        break;
+    case 2:
+        <p>2</p>
+
+        break;
+
+    case 3:
+        <p>3</p>
+
+        break;
+    default:
+        <p>other</p>
+        break;
+};
+
+@if (true)
+{
+    <h3> Yes</h3>
+}
+else
+{
+    <h3> No</h3>
+}
+
+<h2> Number LIst</h2>
+
+<ul>
+    @foreach (int num in Model.Numbers)
+    {
+
+        <li> @num</li>
+    }
+</ul>
